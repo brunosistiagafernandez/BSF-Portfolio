@@ -1,33 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Portafolio de Bruno Sistiaga</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background-color: #f4f4f4;
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      font-size: 18px;
-      color: #555;
-    }
-    /* Estilo para la carita feliz añadida al final de la página */
-    .smile {
-      font-size: 48px;
-      margin-top: 30px;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio de [Tu Nombre] — 3D Environment Artist. Creando mundos inmersivos y atmósferas realistas.">
+  <meta name="author" content="[Tu Nombre]">
+  <title>Portfolio de [Tu Nombre] — 3D Environment Artist</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>Hola, soy Bruno Sistiaga</h1>
-  <p>Bienvenido a mi portafolio personal.</p>
-  <p>Aquí encontrarás mis proyectos, habilidades y formas de contacto.</p>
-  <p class="smile" aria-label="carita feliz">😊</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Portfolio de [Tu Nombre]</a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-media" role="img" aria-label="Hero image">
+        <!-- background image is in CSS, uses assets/hero.svg -->
+      </div>
+      <div class="hero-content container">
+        <h1 class="hero-title">[Tu Nombre]</h1>
+        <p class="hero-sub">3D Environment Artist</p>
+        <p class="hero-tag">Creando mundos inmersivos y atmósferas realistas</p>
+        <div class="hero-cta">
+          <a class="btn" href="projects.html">Ver proyectos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about container">
+      <div class="about-grid">
+        <div class="about-photo" aria-hidden="true">
+          <img src="assets/profile.svg" alt="Foto de [Tu Nombre] (placeholder)">
+        </div>
+        <div class="about-text">
+          <h2>About</h2>
+          <p>Hola — soy [Tu Nombre], 3D Environment Artist especializado en crear espacios con fuerte carga atmosférica y atención al detalle. Trabajo con pipeline completo: modelado, texturizado, iluminación y composición.</p>
+          <p class="soft">Experiencia en producción de entornos para juegos y cinematics. Me enfoco en storytelling visual y optimización para tiempo real.</p>
+
+          <h3>Herramientas</h3>
+          <ul class="tools">
+            <li>Blender</li>
+            <li>Substance 3D Painter</li>
+            <li>Unreal Engine</li>
+            <li>Photoshop</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact container">
+      <h2>Contact</h2>
+      <p>¿Interesado en colaborar o contratar? Envíame un mensaje.</p>
+      <form class="contact-form" action="#" onsubmit="return submitContact(event)">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Nombre" required>
+          <input type="email" name="email" placeholder="Correo electrónico" required>
+        </div>
+        <textarea name="message" rows="5" placeholder="Escribe tu mensaje" required></textarea>
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Enviar</button>
+        </div>
+      </form>
+
+      <div class="socials">
+        <a href="#" aria-label="ArtStation">ArtStation</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> [Tu Nombre]. Todos los derechos reservados.</small>
+    </div>
+  </footer>
 </body>
 </html>
