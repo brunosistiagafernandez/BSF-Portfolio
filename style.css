@@ -1,5 +1,7 @@
 :root{
   --bg:#0b0b0d;
+  /* Degradado sutil para fondo general */
+  --bg-gradient: linear-gradient(180deg, rgba(11,11,13,1) 0%, rgba(17,18,23,1) 50%, rgba(10,12,18,1) 100%);
   --card:#111217;
   --muted:#9aa3b2;
   --accent:#3aa0ff;
@@ -12,7 +14,8 @@ html,body{height:100%}
 body{
   margin:0;
   font-family:Inter,system-ui,Arial,sans-serif;
-  background:var(--bg);
+  /* Usar degradado sutil con fallback a color plano */
+  background: var(--bg-gradient, var(--bg));
   color:var(--white);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -26,16 +29,34 @@ body{
 .nav a:hover{color:var(--white)}
 
 .hero{position:relative;min-height:70vh;display:flex;align-items:center}
-.hero-media{position:absolute;inset:0;background-image:url('assets/hero.jpg');background-size:cover;background-position:center;filter:brightness(0.5);z-index:0}
-.hero-content{position:relative;z-index:2;padding:80px 0;text-align:left}
+.hero-media{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-media picture, .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero-media .hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none; /* subtle gradient overlay for contrast */
+  background: linear-gradient(180deg, rgba(5,7,10,0.26) 0%, rgba(5,7,10,0.58) 70%);
+}
+.hero-content{position:relative;z-index:3;padding:80px 0;text-align:left}
 .hero-title{font-size: clamp(32px, 6vw, 64px);margin:0 0 6px}
-.hero-sub{font-size:20px;color:var(--accent);margin:0 0 8px}
+.hero-sub{font-size:20px;color:var(--accent);margin:0 0 8px;opacity:0;transform:translateY(10px);animation:heroFadeUp .7s ease-out .15s both}
+.hero-title{opacity:0;transform:translateY(6px);animation:heroTitleFade .6s ease-out .05s both}
 .hero-tag{color:var(--muted);margin:0 0 18px}
 .hero-cta .btn{display:inline-block}
 
 .btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--white);padding:10px 18px;border-radius:8px;text-decoration:none;transition:all .25s ease}
 .btn:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(58,160,255,0.12);border-color:var(--accent);}
 .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none}
+
+@keyframes heroFadeUp{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes heroTitleFade{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hero-sub, .hero-title { animation: none !important; opacity:1; transform:none }
+}
 
 .about{padding:60px 0}
 .about-grid{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:center}

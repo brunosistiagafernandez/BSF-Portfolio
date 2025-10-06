@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Proyectos — Portfolio de [Tu Nombre]</title>
+  <title>Proyectos — Portfolio de Bruno Sistiaga</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html">Portfolio de [Tu Nombre]</a>
+  <a class="brand" href="index.html">Portfolio de Bruno Sistiaga</a>
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="#">Projects</a>
@@ -28,21 +28,30 @@
     </section>
 
     <section class="projects-grid" aria-live="polite">
-      <article class="project-card" data-title="Bosque Nocturno" data-images="assets/project1-1.jpg,assets/project1-2.jpg" data-tools="Blender,Substance,Unreal Engine">
-        <img src="assets/project1-1.jpg" alt="Bosque Nocturno - thumbnail">
+      <article class="project-card" data-title="Bosque Nocturno" data-images="assets/hero.jpg" data-tools="Blender,Substance,Unreal Engine">
+        <picture>
+          <source srcset="assets/hero.webp" type="image/webp">
+          <img src="assets/hero.jpg" alt="Bosque Nocturno - thumbnail" loading="lazy">
+        </picture>
         <div class="project-meta">
           <strong>Bosque Nocturno</strong>
           <div class="muted">Entorno natural / nocturno</div>
         </div>
       </article>
 
-      <article class="project-card" data-title="Ruinas Futuristas" data-images="assets/project2-1.jpg,assets/project2-2.jpg" data-tools="Blender,Substance">
-        <img src="assets/project2-1.jpg" alt="Ruinas Futuristas - thumbnail">
+      <article class="project-card" data-title="Ruinas Futuristas" data-images="assets/hero.jpg" data-tools="Blender,Substance">
+        <picture>
+          <source srcset="assets/hero.webp" type="image/webp">
+          <img src="assets/hero.jpg" alt="Ruinas Futuristas - thumbnail" loading="lazy">
+        </picture>
         <div class="project-meta"><strong>Ruinas Futuristas</strong><div class="muted">Sci-fi environment</div></div>
       </article>
 
-      <article class="project-card" data-title="Ciudad Sumergida" data-images="assets/project3-1.jpg,assets/project3-2.jpg" data-tools="Blender,UE">
-        <img src="assets/project3-1.jpg" alt="Ciudad Sumergida - thumbnail">
+      <article class="project-card" data-title="Ciudad Sumergida" data-images="assets/hero.jpg" data-tools="Blender,UE">
+        <picture>
+          <source srcset="assets/hero.webp" type="image/webp">
+          <img src="assets/hero.jpg" alt="Ciudad Sumergida - thumbnail" loading="lazy">
+        </picture>
         <div class="project-meta"><strong>Ciudad Sumergida</strong><div class="muted">Ambiente submarino</div></div>
       </article>
     </section>
@@ -58,6 +67,6 @@
     </div>
 
   </main>
-  <footer class="site-footer"><div class="container"><small>© <span id="year2"></span> [Tu Nombre]</small></div></footer>
+  <footer class="site-footer"><div class="container"><small>© <span id="year2"></span> Bruno Sistiaga</small></div></footer>
 </body>
 </html>

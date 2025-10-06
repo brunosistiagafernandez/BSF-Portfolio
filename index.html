@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio de [Tu Nombre] — 3D Environment Artist. Creando mundos inmersivos y atmósferas realistas.">
-  <meta name="author" content="[Tu Nombre]">
-  <title>Portfolio de [Tu Nombre] — 3D Environment Artist</title>
+  <meta name="description" content="Portfolio de Bruno Sistiaga — 3D Environment Artist. Creando mundos inmersivos y atmósferas realistas.">
+  <meta name="author" content="Bruno Sistiaga">
+  <title>Portfolio de Bruno Sistiaga — 3D Environment Artist</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -14,7 +14,7 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html">Portfolio de [Tu Nombre]</a>
+  <a class="brand" href="index.html">Portfolio de Bruno Sistiaga</a>
       <nav class="nav">
         <a href="#about">About</a>
         <a href="projects.html">Projects</a>
@@ -26,12 +26,16 @@
   <main>
     <section class="hero">
       <div class="hero-media" role="img" aria-label="Hero image">
-        <!-- background image is in CSS, uses assets/hero.svg -->
+        <picture>
+          <source srcset="assets/hero.webp" type="image/webp">
+          <img src="assets/hero.jpg" alt="Hero project image" loading="lazy">
+        </picture>
+        <div class="hero-overlay" aria-hidden="true"></div>
       </div>
       <div class="hero-content container">
-        <h1 class="hero-title">[Tu Nombre]</h1>
-        <p class="hero-sub">3D Environment Artist</p>
-        <p class="hero-tag">Creando mundos inmersivos y atmósferas realistas</p>
+  <h1 class="hero-title">Bruno Sistiaga</h1>
+  <p class="hero-sub">3D Environment Artist — Diseñando mundos que cuentan historias</p>
+  <p class="hero-tag">Transformo ideas en entornos inmersivos con iluminación, materiales y composición pensados para impactar.</p>
         <div class="hero-cta">
           <a class="btn" href="projects.html">Ver proyectos</a>
         </div>
@@ -41,11 +45,11 @@
     <section id="about" class="about container">
       <div class="about-grid">
         <div class="about-photo" aria-hidden="true">
-          <img src="assets/profile.svg" alt="Foto de [Tu Nombre] (placeholder)">
+          <img src="assets/profile.svg" alt="Foto de Bruno Sistiaga (placeholder)">
         </div>
         <div class="about-text">
           <h2>About</h2>
-          <p>Hola — soy [Tu Nombre], 3D Environment Artist especializado en crear espacios con fuerte carga atmosférica y atención al detalle. Trabajo con pipeline completo: modelado, texturizado, iluminación y composición.</p>
+          <p>Hola — soy Bruno Sistiaga, 3D Environment Artist especializado en crear espacios con fuerte carga atmosférica y atención al detalle. Trabajo con pipeline completo: modelado, texturizado, iluminación y composición.</p>
           <p class="soft">Experiencia en producción de entornos para juegos y cinematics. Me enfoco en storytelling visual y optimización para tiempo real.</p>
 
           <h3>Herramientas</h3>
@@ -83,7 +87,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <small>© <span id="year"></span> [Tu Nombre]. Todos los derechos reservados.</small>
+  <small>© <span id="year"></span> Bruno Sistiaga. Todos los derechos reservados.</small>
     </div>
   </footer>
 </body>

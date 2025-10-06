@@ -21,7 +21,11 @@ document.addEventListener('DOMContentLoaded', function(){
     const images = (card.dataset.images || '').split(',').map(s=>s.trim()).filter(Boolean);
     const tools = card.dataset.tools || '';
     modalTitle.textContent = title;
-    modalMedia.innerHTML = images.map(src => `<img src="${src}" alt="${title}" />`).join('');
+    modalMedia.innerHTML = images.map(src => {
+      // prefer webp variant if available (same name with .webp)
+      const webp = src.replace(/\.[^.]+$/, '.webp');
+      return `<picture><source srcset="${webp}" type="image/webp"><img src="${src}" alt="${title}" loading="lazy"></picture>`;
+    }).join('');
     modalDesc.innerHTML = `<p><strong>Tools:</strong> ${tools}</p><p class="soft">Descripción breve del proyecto y enfoque artístico.</p>`;
     modal.classList.add('open');
     modal.setAttribute('aria-hidden','false');
@@ -41,6 +45,61 @@ document.addEventListener('DOMContentLoaded', function(){
     entries.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('revealed'); });
   },{threshold:0.08});
   reveals.forEach(r=>io.observe(r));
+  
+  // Add responsive srcset/sizes for images in assets/ automatically
+  function makeSrcsetVariants(srcBase){
+    // srcBase: e.g. assets/hero.jpg or assets/project1-1.jpg
+    const parts = srcBase.split('/');
+    const filename = parts.pop();
+    const path = parts.join('/') + (parts.length ? '/' : '');
+    const name = filename.replace(/\.[^.]+$/, '');
+    // variants: 480, 900, 1600
+    const jpg480 = `${path}${name}-480.jpg`;
+    const jpg900 = `${path}${name}-900.jpg`;
+    const jpg1600 = `${path}${name}-1600.jpg`;
+    const webp480 = `${path}${name}-480.webp`;
+    const webp900 = `${path}${name}-900.webp`;
+    const webp1600 = `${path}${name}-1600.webp`;
+    return {
+      webp: `${webp480} 480w, ${webp900} 900w, ${webp1600} 1600w`,
+      jpg: `${jpg480} 480w, ${jpg900} 900w, ${jpg1600} 1600w`,
+      sizes: '(max-width:600px) 100vw, (max-width:900px) 50vw, 33vw'
+    };
+  }
+
+  function enhanceImages(){
+    const imgs = document.querySelectorAll('img[src^="assets/"]');
+    imgs.forEach(img => {
+      if(img.hasAttribute('srcset')) return; // don't overwrite existing
+      const src = img.getAttribute('src');
+      const variants = makeSrcsetVariants(src);
+      img.setAttribute('srcset', variants.jpg);
+      img.setAttribute('sizes', variants.sizes);
+    });
+
+    // Enhance pictures: add webp source srcset if source[type=image/webp] exists without srcset
+    const pictures = document.querySelectorAll('picture');
+    pictures.forEach(pic => {
+      const img = pic.querySelector('img');
+      if(!img) return;
+      const src = img.getAttribute('src');
+      const variants = makeSrcsetVariants(src);
+      let webpSource = Array.from(pic.querySelectorAll('source')).find(s=>s.getAttribute('type')==='image/webp');
+      if(webpSource){
+        if(!webpSource.getAttribute('srcset')) webpSource.setAttribute('srcset', variants.webp);
+      } else {
+        const s = document.createElement('source');
+        s.setAttribute('type','image/webp');
+        s.setAttribute('srcset', variants.webp);
+        pic.insertBefore(s, img);
+      }
+      if(!img.getAttribute('srcset')) img.setAttribute('srcset', variants.jpg);
+      if(!img.getAttribute('sizes')) img.setAttribute('sizes', variants.sizes);
+    });
+  }
+
+  // Run enhancer once DOM is ready
+  enhanceImages();
 });
 
 // Fake contact submit for demo
