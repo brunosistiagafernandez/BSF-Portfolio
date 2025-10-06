@@ -38,6 +38,7 @@ body{
 .hero-title{font-size: clamp(32px, 6vw, 64px);margin:0 0 6px}
 .hero-sub{font-size:20px;color:var(--accent);margin:0 0 8px;opacity:0;transform:translateY(10px);animation:heroFadeUp .7s ease-out .15s both}
 .hero-title{opacity:0;transform:translateY(6px);animation:heroTitleFade .6s ease-out .05s both}
+.smile-inline{font-size:0.9em;margin-left:8px;vertical-align:middle;display:inline-block}
 .hero-tag{color:var(--muted);margin:0 0 18px}
 .hero-cta .btn{display:inline-block}
 
