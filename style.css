@@ -43,15 +43,15 @@ body{
 .hero-cta .btn{display:inline-block}
 
 /* Avatar placeholder to the left of the hero name */
-.hero-head{display:flex;align-items:flex-start;gap:20px}
-.hero-avatar{width:110px;height:110px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.06);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))}
+.hero-head{display:flex;align-items:flex-start;gap:32px}
+.hero-avatar{width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.06);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));flex:0 0 160px}
 .hero-text{display:block}
 @media (max-width:900px){
-  .hero-avatar{width:90px;height:90px}
+  .hero-avatar{width:130px;height:130px;flex:0 0 130px}
 }
 @media (max-width:600px){
   .hero-head{flex-direction:column;align-items:center;text-align:center}
-  .hero-avatar{width:72px;height:72px;margin-bottom:8px}
+  .hero-avatar{width:96px;height:96px;flex:0 0 96px;margin-bottom:8px}
 }
 
 .btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--white);padding:10px 18px;border-radius:8px;text-decoration:none;transition:all .25s ease}
