@@ -9,9 +9,13 @@
     "tag": "Transformo ideas en entornos inmersivos con iluminación, materiales y composición pensados para impactar."
   },
   "projects": {
-    "title": "Proyectos",
+  "title": "Portfolio",
     "subtitle": "Muestra de trabajos representativos — haz clic en una miniatura para ver detalles."
     ,
+
+    "categories": {
+      "personal": "Proyectos Personales"
+    },
     "items": {
       "bosque": {
         "title": "Bosque Nocturno",
@@ -37,6 +41,19 @@
         "meta": "Estación de servicio en el desierto",
         "desc": "Entorno detallado de una gasolinera en un paisaje desértico, centrado en iluminación diurna y materiales realistas.",
         "tools": "Blender, Substance 3D Painter, Unreal Engine"
+      }
+      ,
+      "abandoned": {
+        "title": "Abandoned Hospital",
+        "meta": "Entorno urbano abandonado",
+        "desc": "Escena de hospital abandonado enfocada en atmósfera y detalles deteriorados.",
+        "tools": "Blender, Substance"
+      },
+      "forgotten": {
+        "title": "Forgotten Memories",
+        "meta": "Entorno onírico",
+        "desc": "Proyecto que explora recuerdos fragmentados y atmósferas oníricas a través de iluminación suave y composición.",
+        "tools": "Blender, Substance 3D Painter"
       }
     }
   },

@@ -9,9 +9,13 @@
     "tag": "I transform ideas into immersive environments with lighting, materials and composition designed to impress."
   },
   "projects": {
-    "title": "Projects",
+  "title": "Portfolio",
     "subtitle": "A selection of representative works — click a thumbnail to view details."
     ,
+
+    "categories": {
+      "personal": "Personal Projects"
+    },
     "items": {
       "bosque": {
         "title": "Night Forest",
@@ -37,6 +41,19 @@
         "meta": "Desert gas station environment",
         "desc": "A detailed environment of a gas station set in a desert landscape, focused on daylight lighting and realistic materials.",
         "tools": "Blender, Substance 3D Painter, Unreal Engine"
+      }
+      ,
+      "abandoned": {
+        "title": "Abandoned Hospital",
+        "meta": "Abandoned urban environment",
+        "desc": "Abandoned hospital scene focused on atmosphere and decayed detail.",
+        "tools": "Blender, Substance"
+      },
+      "forgotten": {
+        "title": "Forgotten Memories",
+        "meta": "Dreamlike environment",
+        "desc": "A project exploring fragmented memories and dreamlike atmospheres through soft lighting and composition.",
+        "tools": "Blender, Substance 3D Painter"
       }
     }
   },

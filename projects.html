@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Proyectos — Portfolio de Bruno Sistiaga</title>
+  <title>Portfolio — Bruno Sistiaga</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -32,10 +32,47 @@
     </section>
 
   <section class="projects-grid" aria-live="polite">
-    <div class="projects-empty">
-      <h3 data-i18n="projects.empty_title">Portafolio vacío</h3>
-      <p data-i18n="projects.empty">No hay proyectos por ahora. Añade proyectos para que aparezcan aquí.</p>
-      <p class="soft">Puedes usar la plantilla en el HTML para añadir tarjetas de proyecto más tarde.</p>
+    <div class="projects-category">
+      <h2 data-i18n="projects.categories.personal">Personal Projects</h2>
+      <div class="category-grid">
+        <!-- Abandoned Hospital -->
+        <article class="project-card" data-key="abandoned" data-images="assets/project1-1.jpg,assets/project1-2.jpg" data-tools="Blender,Substance">
+          <picture>
+            <source srcset="assets/project1-1.jpg" type="image/jpeg">
+            <img src="assets/project1-1.jpg" alt="Abandoned Hospital - thumbnail" loading="lazy">
+          </picture>
+          <div class="project-meta">
+            <strong class="meta-title"><span data-i18n="projects.items.abandoned.title">Abandoned Hospital</span></strong>
+            <div class="muted" data-i18n="projects.items.abandoned.meta">Entorno urbano abandonado</div>
+          </div>
+        </article>
+
+        <!-- Desolux Gas Station -->
+        <article class="project-card" data-key="desolux" data-images="assets/Gas_Station-Daylight Main.webp" data-tools="Blender,Substance 3D Painter,Unreal Engine">
+          <picture>
+            <source srcset="assets/Gas_Station-Daylight Main.webp" type="image/webp">
+            <img src="assets/Gas_Station-Daylight Main.webp" alt="Desolux Gas Station - thumbnail" loading="lazy">
+          </picture>
+          <div class="project-meta">
+            <strong class="meta-title"><span data-i18n="projects.items.desolux.title">Desolux Gas Station</span>
+              <img class="artstation-icon" src="assets/Artstation_Small_Logo.png" alt="ArtStation" />
+            </strong>
+            <div class="muted" data-i18n="projects.items.desolux.meta">Estación de servicio en el desierto</div>
+          </div>
+        </article>
+
+        <!-- Forgotten Memories -->
+        <article class="project-card" data-key="forgotten" data-images="assets/project3-1.jpg,assets/project3-2.jpg" data-tools="Blender,Substance 3D Painter">
+          <picture>
+            <source srcset="assets/project3-1.jpg" type="image/jpeg">
+            <img src="assets/project3-1.jpg" alt="Forgotten Memories - thumbnail" loading="lazy">
+          </picture>
+          <div class="project-meta">
+            <strong class="meta-title"><span data-i18n="projects.items.forgotten.title">Forgotten Memories</span></strong>
+            <div class="muted" data-i18n="projects.items.forgotten.meta">Entorno onírico</div>
+          </div>
+        </article>
+      </div>
     </div>
 
     <!-- Template para nuevas tarjetas de proyecto -->
