@@ -137,6 +137,14 @@ document.addEventListener('DOMContentLoaded', function(){
       for(const p of parts){ if(val && p in val) val = val[p]; else { val = null; break } }
       if(val) el.setAttribute('placeholder', val);
     });
+    // alt attributes
+    document.querySelectorAll('[data-i18n-alt]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-alt');
+      const parts = key.split('.');
+      let val = dict;
+      for(const p of parts){ if(val && p in val) val = val[p]; else { val = null; break } }
+      if(val) el.setAttribute('alt', val);
+    });
     currentLang = lang;
     localStorage.setItem('site_lang', lang);
     document.querySelectorAll('.lang-btn').forEach(b=>{ b.classList.toggle('active', b.dataset.lang===lang); b.setAttribute('aria-pressed', b.dataset.lang===lang ? 'true' : 'false') });

@@ -45,4 +45,14 @@
     "email_placeholder": "Correo electrónico",
     "message_placeholder": "Escribe tu mensaje"
   }
+  ,
+  "about": {
+      "title": "About",
+      "p1": "Hola — soy Bruno Sistiaga, 3D Environment Artist especializado en crear espacios con fuerte carga atmosférica y atención al detalle. Trabajo con pipeline completo: modelado, texturizado, iluminación y composición.",
+      "p2": "Experiencia en producción de entornos para juegos y cinematics. Me enfoco en storytelling visual y optimización para tiempo real.",
+      "avatar_alt": "Foto de Bruno Sistiaga (placeholder)"
+    },
+  "footer": {
+    "copyright": "© <span id=\"year\"></span> Bruno Sistiaga. Todos los derechos reservados."
+  }
 }

@@ -37,6 +37,15 @@
     "tools_label": "Tools:",
     "close": "Close"
   },
+  "about": {
+    "title": "About",
+    "p1": "Hi — I'm Bruno Sistiaga, a 3D Environment Artist specialized in creating spaces with strong atmospheric presence and attention to detail. I work the full pipeline: modeling, texturing, lighting and composition.",
+    "p2": "Experience producing environments for games and cinematics. I focus on visual storytelling and real-time optimization.",
+    "avatar_alt": "Photo of Bruno Sistiaga (placeholder)"
+  },
+  "footer": {
+    "copyright": "© <span id=\"year\"></span> Bruno Sistiaga. All rights reserved."
+  },
   "contact": {
     "title": "Contact",
     "submit": "Send",
