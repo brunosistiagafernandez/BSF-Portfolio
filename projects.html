@@ -31,20 +31,27 @@
       <p class="soft" data-i18n="projects.subtitle">Muestra de trabajos representativos — haz clic en una miniatura para ver detalles.</p>
     </section>
 
-  <section class="projects-grid single" aria-live="polite">
-      <article class="project-card" data-key="desolux" data-images="assets/Gas_Station-Daylight Main.webp" data-tools="Blender,Substance,Unreal Engine">
+  <section class="projects-grid" aria-live="polite">
+    <div class="projects-empty">
+      <h3 data-i18n="projects.empty_title">Portafolio vacío</h3>
+      <p data-i18n="projects.empty">No hay proyectos por ahora. Añade proyectos para que aparezcan aquí.</p>
+      <p class="soft">Puedes usar la plantilla en el HTML para añadir tarjetas de proyecto más tarde.</p>
+    </div>
+
+    <!-- Template para nuevas tarjetas de proyecto -->
+    <template id="project-template">
+      <article class="project-card" data-key="" data-images="" data-tools="">
         <picture>
-          <source srcset="assets/Gas_Station-Daylight Main.webp" type="image/webp">
-          <img src="assets/Gas_Station-Daylight Main.webp" alt="Desolux Gas Station - thumbnail" loading="lazy">
+          <source srcset="" type="image/webp">
+          <img src="" alt="" loading="lazy">
         </picture>
         <div class="project-meta">
-          <strong class="meta-title"><span data-i18n="projects.items.desolux.title">Desolux Gas Station</span>
-            <img class="artstation-icon" src="assets/Artstation_Small_Logo.png" alt="ArtStation" />
-          </strong>
-          <div class="muted" data-i18n="projects.items.desolux.meta">Desert gas station environment</div>
+          <strong class="meta-title"><span></span></strong>
+          <div class="muted"></div>
         </div>
       </article>
-    </section>
+    </template>
+  </section>
 
     <!-- Modal -->
     <div id="modal" class="modal" role="dialog" aria-hidden="true">
