@@ -1,7 +1,7 @@
 {
   "nav": {
     "inicio": "Home",
-    "proyectos": "Projects",
+  "proyectos": "Portfolio",
     "contacto": "Contact"
   },
   "hero": {
