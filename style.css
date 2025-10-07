@@ -98,6 +98,12 @@ body{
 .project-card:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(0,0,0,0.6)}
 .project-meta{padding:8px 0}
 
+.project-meta .meta-title{display:flex;align-items:center;gap:8px}
+.artstation-link{display:inline-flex;align-items:center;color:var(--muted);margin-left:6px;text-decoration:none}
+.artstation-link:hover{color:var(--accent)}
+.artstation-icon{width:16px;height:16px;display:inline-block;vertical-align:middle;margin-left:6px}
+.project-meta img.artstation-icon{width:16px;height:16px;object-fit:contain;margin-left:6px;opacity:0.92}
+
 /* Modal */
 .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:60;padding:24px}
 .modal.open{display:flex}
