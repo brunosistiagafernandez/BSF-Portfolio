@@ -31,6 +31,13 @@
         "desc": "Concepto de ciudad bajo el agua con efectos de iluminación volumétrica.",
         "tools": "Blender, Unreal Engine"
       }
+      ,
+      "desolux": {
+        "title": "Desolux Gas Station",
+        "meta": "Estación de servicio en el desierto",
+        "desc": "Entorno detallado de una gasolinera en un paisaje desértico, centrado en iluminación diurna y materiales realistas.",
+        "tools": "Blender, Substance 3D Painter, Unreal Engine"
+      }
     }
   },
   "modal": {

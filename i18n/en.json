@@ -31,6 +31,13 @@
         "desc": "Concept of an underwater city with volumetric lighting effects.",
         "tools": "Blender, Unreal Engine"
       }
+      ,
+      "desolux": {
+        "title": "Desolux Gas Station",
+        "meta": "Desert gas station environment",
+        "desc": "A detailed environment of a gas station set in a desert landscape, focused on daylight lighting and realistic materials.",
+        "tools": "Blender, Substance 3D Painter, Unreal Engine"
+      }
     }
   },
   "modal": {

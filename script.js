@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', function(){
     modalMedia.innerHTML = images.map(src => {
       // prefer webp variant if available (same name with .webp)
       const webp = src.replace(/\.[^.]+$/, '.webp');
-      return `<picture><source srcset="${webp}" type="image/webp"><img src="${src}" alt="${title}" loading="lazy"></picture>`;
+      const srcEnc = encodeURI(src);
+      const webpEnc = encodeURI(webp);
+      return `<picture><source srcset="${webpEnc}" type="image/webp"><img src="${srcEnc}" alt="${title}" loading="lazy"></picture>`;
     }).join('');
     modalDesc.innerHTML = `<p><strong>Tools:</strong> ${tools}</p><p class="soft">Descripción breve del proyecto y enfoque artístico.</p>`;
     modal.classList.add('open');
@@ -54,12 +56,14 @@ document.addEventListener('DOMContentLoaded', function(){
     const path = parts.join('/') + (parts.length ? '/' : '');
     const name = filename.replace(/\.[^.]+$/, '');
     // variants: 480, 900, 1600
-    const jpg480 = `${path}${name}-480.jpg`;
-    const jpg900 = `${path}${name}-900.jpg`;
-    const jpg1600 = `${path}${name}-1600.jpg`;
-    const webp480 = `${path}${name}-480.webp`;
-    const webp900 = `${path}${name}-900.webp`;
-    const webp1600 = `${path}${name}-1600.webp`;
+    // encode URIs to safely handle spaces and special chars
+    const enc = s => encodeURI(s);
+    const jpg480 = enc(`${path}${name}-480.jpg`);
+    const jpg900 = enc(`${path}${name}-900.jpg`);
+    const jpg1600 = enc(`${path}${name}-1600.jpg`);
+    const webp480 = enc(`${path}${name}-480.webp`);
+    const webp900 = enc(`${path}${name}-900.webp`);
+    const webp1600 = enc(`${path}${name}-1600.webp`);
     return {
       webp: `${webp480} 480w, ${webp900} 900w, ${webp1600} 1600w`,
       jpg: `${jpg480} 480w, ${jpg900} 900w, ${jpg1600} 1600w`,
@@ -179,7 +183,9 @@ document.addEventListener('DOMContentLoaded', function(){
       modalTitle.textContent = (t && t.title) ? t.title : (card.dataset.title || '');
       modalMedia.innerHTML = images.map(src => {
         const webp = src.replace(/\.[^.]+$/, '.webp');
-        return `<picture><source srcset="${webp}" type="image/webp"><img src="${src}" alt="${t && t.title ? t.title : ''}" loading="lazy"></picture>`;
+        const srcEnc = encodeURI(src);
+        const webpEnc = encodeURI(webp);
+        return `<picture><source srcset="${webpEnc}" type="image/webp"><img src="${srcEnc}" alt="${t && t.title ? t.title : ''}" loading="lazy"></picture>`;
       }).join('');
       const toolsLabel = (t && t.toolsLabel) ? t.toolsLabel : 'Tools:';
       const desc = (t && t.desc) ? t.desc : (`<strong>Tools:</strong> ${tools}`);
