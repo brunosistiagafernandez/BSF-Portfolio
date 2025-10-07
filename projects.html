@@ -34,7 +34,7 @@
   <section class="projects-grid" aria-live="polite">
     <div class="projects-category">
       <h2 data-i18n="projects.categories.personal">Personal Projects</h2>
-      <div class="category-grid">
+      <div class="category-grid" tabindex="0">
         <button class="carousel-btn prev" aria-label="Previous">‹</button>
         <!-- Abandoned Hospital -->
         <article class="project-card" data-key="abandoned" data-images="assets/project1-1.jpg,assets/project1-2.jpg" data-tools="Blender,Substance">
@@ -76,6 +76,7 @@
 
         <button class="carousel-btn next" aria-label="Next">›</button>
       </div>
+      <div class="carousel-indicators" aria-hidden="false"></div>
     </div>
 
     <!-- Template para nuevas tarjetas de proyecto -->
