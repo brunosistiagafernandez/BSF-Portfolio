@@ -206,6 +206,42 @@ document.addEventListener('DOMContentLoaded', function(){
     c.removeEventListener('click', ()=>openModal(c));
     c.addEventListener('click', ()=>openModalWithI18n(c));
   });
+
+  // --- Carousel autoplay & controls for category-grid ---
+  const carousel = document.querySelector('.projects-category .category-grid');
+  if(carousel){
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    let autoplayInterval = null;
+    const cardWidth = () => {
+      const card = carousel.querySelector('.project-card');
+      return card ? card.getBoundingClientRect().width + 18 : 380; // gap fallback
+    };
+    function scrollNext(){
+      carousel.scrollBy({ left: cardWidth(), behavior: 'smooth' });
+    }
+    function scrollPrev(){
+      carousel.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
+    }
+    function startAutoplay(){
+      stopAutoplay();
+      autoplayInterval = setInterval(()=>{ scrollNext(); }, 3500);
+    }
+    function stopAutoplay(){ if(autoplayInterval){ clearInterval(autoplayInterval); autoplayInterval=null; } }
+    // Pause on hover
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    // Buttons
+    if(prevBtn) prevBtn.addEventListener('click', ()=>{ stopAutoplay(); scrollPrev(); });
+    if(nextBtn) nextBtn.addEventListener('click', ()=>{ stopAutoplay(); scrollNext(); });
+    // Scale card on hover via class toggle
+    carousel.querySelectorAll('.project-card').forEach(card=>{
+      card.addEventListener('mouseenter', ()=>{ card.classList.add('focused'); });
+      card.addEventListener('mouseleave', ()=>{ card.classList.remove('focused'); });
+    });
+    // start
+    startAutoplay();
+  }
 });
 
 // Fake contact submit for demo
