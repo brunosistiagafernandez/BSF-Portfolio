@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "inicio": "Home",
+    "proyectos": "Projects",
+    "contacto": "Contact"
+  },
+  "hero": {
+    "sub": "3D Environment Artist — Designing worlds that tell stories",
+    "tag": "I transform ideas into immersive environments with lighting, materials and composition designed to impress."
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of representative works — click a thumbnail to view details."
+  },
+  "contact": {
+    "title": "Contact",
+    "submit": "Send",
+    "prompt": "Interested in collaborating or hiring? Send me a message.",
+    "name_placeholder": "Name",
+    "email_placeholder": "Email",
+    "message_placeholder": "Write your message"
+  }
+}

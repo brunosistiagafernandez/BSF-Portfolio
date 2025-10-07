@@ -12,22 +12,26 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-  <a class="brand" href="index.html">Portfolio de Bruno Sistiaga</a>
+      <a class="brand" href="index.html">Portfolio de Bruno Sistiaga</a>
       <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="#">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html" data-i18n="nav.inicio">Inicio</a>
+        <a href="#" data-i18n="nav.proyectos">Proyectos</a>
+        <a href="#contact" data-i18n="nav.contacto">Contacto</a>
       </nav>
+      <div class="lang-switch">
+        <button id="lang-es" class="lang-btn" data-lang="es">ES</button>
+        <button id="lang-en" class="lang-btn" data-lang="en">EN</button>
+      </div>
     </div>
   </header>
 
   <main class="container">
     <section class="projects-hero">
-      <h1>Proyectos</h1>
-      <p class="soft">Muestra de trabajos representativos — haz clic en una miniatura para ver detalles.</p>
+      <h1 data-i18n="projects.title">Proyectos</h1>
+      <p class="soft" data-i18n="projects.subtitle">Muestra de trabajos representativos — haz clic en una miniatura para ver detalles.</p>
     </section>
 
-    <section class="projects-grid" aria-live="polite">
+  <section class="projects-grid" aria-live="polite">
       <article class="project-card" data-title="Bosque Nocturno" data-images="assets/hero.jpg" data-tools="Blender,Substance,Unreal Engine">
         <picture>
           <source srcset="assets/hero.webp" type="image/webp">

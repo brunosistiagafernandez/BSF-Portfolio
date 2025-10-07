@@ -100,6 +100,48 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // Run enhancer once DOM is ready
   enhanceImages();
+  
+  // --- Simple i18n loader ---
+  const defaultLang = 'es';
+  let currentLang = localStorage.getItem('site_lang') || defaultLang;
+
+  async function loadTranslations(lang){
+    try{
+      const res = await fetch(`i18n/${lang}.json`);
+      if(!res.ok) throw new Error('no translations');
+      return await res.json();
+    }catch(e){
+      console.warn('i18n load failed for', lang, e);
+      return null;
+    }
+  }
+
+  async function applyTranslations(lang){
+    const dict = await loadTranslations(lang);
+    if(!dict) return;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      const parts = key.split('.');
+      let val = dict;
+      for(const p of parts){ if(val && p in val) val = val[p]; else { val = null; break } }
+      if(val) el.textContent = val;
+    });
+    // placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-placeholder');
+      const parts = key.split('.');
+      let val = dict;
+      for(const p of parts){ if(val && p in val) val = val[p]; else { val = null; break } }
+      if(val) el.setAttribute('placeholder', val);
+    });
+    currentLang = lang;
+    localStorage.setItem('site_lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(b=> b.addEventListener('click', ()=> applyTranslations(b.dataset.lang)));
+  // initial
+  applyTranslations(currentLang);
 });
 
 // Fake contact submit for demo

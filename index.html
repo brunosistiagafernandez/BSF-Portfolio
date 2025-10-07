@@ -14,12 +14,16 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-  <a class="brand" href="index.html">Portfolio de Bruno Sistiaga</a>
+      <a class="brand" href="index.html">Portfolio de Bruno Sistiaga</a>
       <nav class="nav">
-        <a href="#about">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-i18n="nav.inicio">Inicio</a>
+        <a href="projects.html" data-i18n="nav.proyectos">Proyectos</a>
+        <a href="#contact" data-i18n="nav.contacto">Contacto</a>
       </nav>
+      <div class="lang-switch">
+        <button id="lang-es" class="lang-btn" data-lang="es">ES</button>
+        <button id="lang-en" class="lang-btn" data-lang="en">EN</button>
+      </div>
     </div>
   </header>
 
@@ -36,9 +40,9 @@
         <div class="hero-head">
           <img class="hero-avatar" src="assets/profile.svg" alt="Foto de perfil (placeholder)">
           <div class="hero-text">
-            <h1 class="hero-title">Bruno Sistiaga <span class="smile-inline" role="img" aria-label="carita feliz">😊</span></h1>
-            <p class="hero-sub">3D Environment Artist — Diseñando mundos que cuentan historias</p>
-            <p class="hero-tag">Transformo ideas en entornos inmersivos con iluminación, materiales y composición pensados para impactar.</p>
+              <h1 class="hero-title">Bruno Sistiaga <span class="smile-inline" role="img" aria-label="carita feliz">😊</span></h1>
+              <p class="hero-sub" data-i18n="hero.sub">3D Environment Artist — Diseñando mundos que cuentan historias</p>
+              <p class="hero-tag" data-i18n="hero.tag">Transformo ideas en entornos inmersivos con iluminación, materiales y composición pensados para impactar.</p>
           </div>
         </div>
         
@@ -67,16 +71,16 @@
     </section>
 
     <section id="contact" class="contact container">
-      <h2>Contact</h2>
-      <p>¿Interesado en colaborar o contratar? Envíame un mensaje.</p>
+      <h2 data-i18n="contact.title">Contacto</h2>
+      <p data-i18n="contact.prompt">¿Interesado en colaborar o contratar? Envíame un mensaje.</p>
       <form class="contact-form" action="#" onsubmit="return submitContact(event)">
         <div class="form-row">
-          <input type="text" name="name" placeholder="Nombre" required>
-          <input type="email" name="email" placeholder="Correo electrónico" required>
+          <input type="text" name="name" data-i18n-placeholder="contact.name_placeholder" placeholder="Nombre" required>
+          <input type="email" name="email" data-i18n-placeholder="contact.email_placeholder" placeholder="Correo electrónico" required>
         </div>
-        <textarea name="message" rows="5" placeholder="Escribe tu mensaje" required></textarea>
+        <textarea name="message" rows="5" data-i18n-placeholder="contact.message_placeholder" placeholder="Escribe tu mensaje" required></textarea>
         <div class="form-actions">
-          <button class="btn primary" type="submit">Enviar</button>
+          <button class="btn primary" type="submit" data-i18n="contact.submit">Enviar</button>
         </div>
       </form>
 
