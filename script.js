@@ -119,6 +119,9 @@ document.addEventListener('DOMContentLoaded', function(){
   async function applyTranslations(lang){
     const dict = await loadTranslations(lang);
     if(!dict) return;
+    // expose translations for other code
+    window.TRANSLATIONS = window.TRANSLATIONS || {};
+    window.TRANSLATIONS[lang] = dict;
     document.querySelectorAll('[data-i18n]').forEach(el=>{
       const key = el.getAttribute('data-i18n');
       const parts = key.split('.');
@@ -136,12 +139,59 @@ document.addEventListener('DOMContentLoaded', function(){
     });
     currentLang = lang;
     localStorage.setItem('site_lang', lang);
-    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+    document.querySelectorAll('.lang-btn').forEach(b=>{ b.classList.toggle('active', b.dataset.lang===lang); b.setAttribute('aria-pressed', b.dataset.lang===lang ? 'true' : 'false') });
   }
 
   document.querySelectorAll('.lang-btn').forEach(b=> b.addEventListener('click', ()=> applyTranslations(b.dataset.lang)));
   // initial
   applyTranslations(currentLang);
+  
+  // Use translations in modal if available
+  function translateModalForKey(key){
+    const dict = window.TRANSLATIONS && window.TRANSLATIONS[currentLang];
+    if(!dict) return null;
+    const proj = dict.projects && dict.projects.items && dict.projects.items[key];
+    return {
+      title: proj && proj.title,
+      desc: proj && proj.desc,
+      toolsLabel: dict.modal && dict.modal.tools_label,
+      closeText: dict.modal && dict.modal.close
+    };
+  }
+
+  // override openModal to prefer translations when data-key exists
+  const originalOpenModal = openModal;
+  function openModalWithI18n(card){
+    if(!modal) return;
+    const key = card.dataset.key;
+    const images = (card.dataset.images || '').split(',').map(s=>s.trim()).filter(Boolean);
+    const tools = card.dataset.tools || '';
+    if(key){
+      const t = translateModalForKey(key);
+      modalTitle.textContent = (t && t.title) ? t.title : (card.dataset.title || '');
+      modalMedia.innerHTML = images.map(src => {
+        const webp = src.replace(/\.[^.]+$/, '.webp');
+        return `<picture><source srcset="${webp}" type="image/webp"><img src="${src}" alt="${t && t.title ? t.title : ''}" loading="lazy"></picture>`;
+      }).join('');
+      const toolsLabel = (t && t.toolsLabel) ? t.toolsLabel : 'Tools:';
+      const desc = (t && t.desc) ? t.desc : (`<strong>Tools:</strong> ${tools}`);
+      modalDesc.innerHTML = `<p><strong>${toolsLabel}</strong> ${tools}</p><p class="soft">${ (t && t.desc) ? t.desc : 'Descripción breve del proyecto y enfoque artístico.' }</p>`;
+      // close button text
+      if(closeBtn){
+        const closeText = (t && t.closeText) ? t.closeText : ((window.TRANSLATIONS && window.TRANSLATIONS[currentLang] && window.TRANSLATIONS[currentLang].modal && window.TRANSLATIONS[currentLang].modal.close) || 'Cerrar');
+        closeBtn.textContent = closeText;
+      }
+    } else {
+      originalOpenModal(card);
+    }
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+  }
+  // replace event handlers
+  cards.forEach(c=>{
+    c.removeEventListener('click', ()=>openModal(c));
+    c.addEventListener('click', ()=>openModalWithI18n(c));
+  });
 });
 
 // Fake contact submit for demo

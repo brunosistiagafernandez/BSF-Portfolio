@@ -11,6 +11,31 @@
   "projects": {
     "title": "Projects",
     "subtitle": "A selection of representative works — click a thumbnail to view details."
+    ,
+    "items": {
+      "bosque": {
+        "title": "Night Forest",
+        "meta": "Natural / night environment",
+        "desc": "Personal project focused on night lighting and atmosphere.",
+        "tools": "Blender, Substance 3D Painter, Unreal Engine"
+      },
+      "ruinas": {
+        "title": "Futuristic Ruins",
+        "meta": "Sci-fi environment",
+        "desc": "Scene with futuristic structures and worn materials.",
+        "tools": "Blender, Substance"
+      },
+      "ciudad": {
+        "title": "Submerged City",
+        "meta": "Underwater environment",
+        "desc": "Concept of an underwater city with volumetric lighting effects.",
+        "tools": "Blender, Unreal Engine"
+      }
+    }
+  },
+  "modal": {
+    "tools_label": "Tools:",
+    "close": "Close"
   },
   "contact": {
     "title": "Contact",
